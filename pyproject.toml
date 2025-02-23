@@ -1,0 +1,33 @@
+[project]
+name = "ml-from-scratch"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.2.3",
+    "ruff>=0.9.7",
+    "scikit-learn>=1.6.1",
+]
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+docstring-code-format = true
+# skip-magic-trailing-comma = true
+
+[tool.ruff.lint]
+# Adds isort linting
+extend-select = ["I"]
+# Ignore bothersome warnings:
+# E402: module level import not at top of file
+# E712: comparison to False (its bothersome for pandas column comparison to boolean)
+extend-ignore = ["E402", "E712"]
+# Don't autoremove unused imports, variable, etc.
+unfixable = ["F401"]
+# A file or directory to exclude from linting
+exclude = ["scratchpad.py"]
+
+[tool.ruff.lint.pydocstyle]
+# Or "numpy" for example
+convention = "google"
